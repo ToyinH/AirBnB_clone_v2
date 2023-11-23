@@ -4,7 +4,6 @@
 -- Grants all privileges for hbnb_dev on hbnb_dev_db.
 -- Grants SELECT privilege for hbnb_dev on performance.
 
--- Connect to the MySQL server as root (adjust the credentials if needed)
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 
 -- Create the user if it doesn't exist and set the password
