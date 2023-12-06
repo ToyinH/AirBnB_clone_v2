@@ -21,7 +21,17 @@ sudo mkdir /data/web_static/releases/test/
 
 # sudo mkdir -p /data/web_static/shared/
 
-echo "Hello World" | sudo tee /data/web_static/releases/test/index.html
+cat <<EOF > /data/web_static/releases/test/index.html
+<html>
+  <head>
+  </head>
+  <body>
+    Holberton School
+  </body>
+</html>
+EOF
+
+# echo "Hello World" | sudo tee /data/web_static/releases/test/index.html
 
 sym_link="/data/web_static/current"
 
