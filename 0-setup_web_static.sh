@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Preparing my webservers with this script
 
+sudo apt-get install -y nginx
 
 sudo mkdir -p /data/web_static/releases/test/
 
