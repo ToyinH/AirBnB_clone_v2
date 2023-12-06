@@ -21,15 +21,13 @@ sudo mkdir /data/web_static/releases/test/
 
 # sudo mkdir -p /data/web_static/shared/
 
-cat <<EOF > /data/web_static/releases/test/index.html
-<html>
+echo "<html>
   <head>
   </head>
   <body>
     Holberton School
   </body>
-</html>
-EOF
+</html>" | sudo tee /data/web_static/releases/test/index.html
 
 # echo "Hello World" | sudo tee /data/web_static/releases/test/index.html
 
