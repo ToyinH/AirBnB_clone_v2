@@ -1,11 +1,25 @@
 #!/usr/bin/env bash
 # Preparing my webservers with this script
+sudo apt-get update
 
 sudo apt-get install -y nginx
 
-sudo mkdir -p /data/web_static/releases/test/
+sudo ufw allow 'Nginx HTTP'
 
-sudo mkdir -p /data/web_static/shared/
+sudo mkdir /data/
+
+sudo mkdir /data/web_static/
+
+sudo mkdir /data/web_static/releases/
+
+sudo mkdir /data/web_static/shared/
+
+sudo mkdir /data/web_static/releases/test/
+
+
+# sudo mkdir -p /data/web_static/releases/test/
+
+# sudo mkdir -p /data/web_static/shared/
 
 echo "Hello World" | sudo tee /data/web_static/releases/test/index.html
 
