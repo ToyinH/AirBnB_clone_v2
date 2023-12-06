@@ -37,11 +37,11 @@ sym_link="/data/web_static/current"
 
 target="/data/web_static/releases/test/"
 
-if [ -L "$sym_link" ]; then
-		sudo rm -rf "$sym_link"
-fi
+#if [ -L "$sym_link" ]; then
+#		sudo rm -rf "$sym_link"
+#fi
 
-sudo ln -s "$target" "$sym_link"
+sudo ln -s -f "$target" "$sym_link"
 
 sudo chown -R "$USER":"$USER" /data/
 
