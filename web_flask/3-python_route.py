@@ -33,6 +33,7 @@ def c_text(text):
     return "C {}".format(new_text)
 
 
+@app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python_text(text="is cool"):
     """
@@ -59,4 +60,4 @@ if __name__ == "__main__":
         port (int): The port number to run the Flask application on.
                     Defaults to 5000.
     """
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
