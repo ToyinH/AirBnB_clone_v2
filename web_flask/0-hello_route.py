@@ -9,6 +9,9 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def Hello_HBNB():
+    """
+    the function serving the root page
+    """
     return "Hello HBNB!"
 
 if __name__ == "__main__":
