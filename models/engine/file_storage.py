@@ -27,11 +27,11 @@ class FileStorage:
         Otherwise, returns the __objects dictionary
         """
         if cls is not None:
-            if type(cls) == str:
+            if type(cls) is str:
                 cls = eval(cls)
             cls_dict = {}
             for key, value in self.__objects.items():
-                if type(value) == cls:
+                if type(value) is cls:
                     cls_dict[key] = value
             return cls_dict
         return self.__objects
@@ -39,7 +39,8 @@ class FileStorage:
         # if cls is None:
         #     return FileStorage.__objects
         # else:
-        #     filtered_objects = {key: obj for key, obj in FileStorage.__objects.items() if isinstance(obj, cls)}
+        # filtered_objects = {key: obj for key,
+        # obj in FileStorage.__objects.items() if isinstance(obj, cls)}
         #     return filtered_objects
 
     def new(self, obj):
@@ -51,7 +52,10 @@ class FileStorage:
 
     def save(self):
         """Serialize __objects to the JSON file __file_path."""
-        obj_dict = {obj_key: self.__objects[obj_key].to_dict() for obj_key in self.__objects.keys()}
+        obj_dict = {
+            obj_key: self.__objects[obj_key].to_dict()
+            for obj_key in self.__objects.keys()
+            }
         with open(self.__file_path, "w", encoding="utf-8") as f:
             json.dump(obj_dict, f)
 
@@ -67,7 +71,6 @@ class FileStorage:
         """
         Deserialize the JSON file __file_path to __objects, if it exists.
         """
-        
         # from models.base_model import BaseModel
         # from models.user import User
         # from models.place import Place
@@ -99,14 +102,11 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
-
     def delete(self, obj=None):
-        # """Deletes obj from __objects if it's inside; if obj is None, do nothing"""
         # if obj is not None:
         #     key = obj.to_dict()['__class__'] + '.' + obj.id
         #     if key in FileStorage.__objects:
         #         del FileStorage.__objects[key]
-
         """Delete a given object from __objects, if it exists."""
         try:
             del self.__objects["{}.{}".format(type(obj).__name__, obj.id)]
@@ -116,6 +116,3 @@ class FileStorage:
     def close(self):
         """Call the reload method."""
         self.reload()
-
-
-    

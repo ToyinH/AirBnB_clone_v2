@@ -18,7 +18,6 @@ class State(BaseModel, Base):
         name (sqlalchemy String): The name of the State.
         cities (sqlalchemy relationship): The State-City relationship.
     """
-    
     __tablename__ = "states"
     name = Column(String(128), nullable=False)
 
@@ -38,4 +37,3 @@ class State(BaseModel, Base):
                 if city.state_id == self.id:
                     city_list.append(city)
             return city_list
-
