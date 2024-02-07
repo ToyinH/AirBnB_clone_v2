@@ -36,12 +36,7 @@ class FileStorage:
             return cls_dict
         return self.__objects
 
-        # if cls is None:
-        #     return FileStorage.__objects
-        # else:
-        # filtered_objects = {key: obj for key,
-        # obj in FileStorage.__objects.items() if isinstance(obj, cls)}
-        #     return filtered_objects
+        
 
     def new(self, obj):
         """Set in __objects obj with key <obj_class_name>.id."""

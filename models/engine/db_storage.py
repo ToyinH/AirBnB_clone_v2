@@ -4,15 +4,13 @@ from os import getenv
 from models.base_model import Base
 from models.base_model import BaseModel
 from models.amenity import Amenity
-from models.city import City
+# from models.city import City
 from models.place import Place
 from models.review import Review
-from models.state import State
+# from models.state import State
 from models.user import User
 from sqlalchemy import create_engine
-from sqlalchemy.orm import relationship
-from sqlalchemy.orm import scoped_session
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import relationship, scoped_session, sessionmaker
 
 
 class DBStorage:
@@ -56,7 +54,7 @@ class DBStorage:
             if type(cls) is str:
                 cls = eval(cls)
             objs = self.__session.query(cls)
-        return {"{}.{}".format(type(o).__name__, o.id): o for o in objs}
+        return {"{}.{}".format(type(obj).__name__, obj.id): obj for obj in objs}
 
     def new(self, obj):
         """Add obj to the current database session."""
